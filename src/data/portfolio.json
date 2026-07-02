@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "adminPassword": "admin123",
+    "siteTitle": "Alex Johnson | CS Student & Developer",
+    "siteDescription": "Computer Science student passionate about building innovative software solutions. Specializing in full-stack development, AI, and cloud computing.",
+    "siteUrl": "https://alexjohnson.dev",
+    "favicon": "/favicon.ico"
+  },
+
+  "hero": {
+    "name": "Alex Johnson",
+    "title": "Computer Science Student",
+    "tagline": "Building tomorrow's software, today.",
+    "description": "Passionate CS student at MIT with a love for full-stack development, machine learning, and open-source. I turn complex problems into elegant solutions.",
+    "profileImage": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&backgroundColor=1e293b",
+    "imagePosition": "center center",
+    "resumeLink": "/resume.pdf",
+    "typingTexts": [
+      "Full-Stack Developer",
+      "Machine Learning Enthusiast",
+      "Open Source Contributor",
+      "Problem Solver",
+      "CS Student @ MIT"
+    ],
+    "socialLinks": {
+      "github": "https://github.com/alexjohnson",
+      "linkedin": "https://linkedin.com/in/alexjohnson",
+      "twitter": "https://twitter.com/alexjohnson",
+      "email": "alex@example.com",
+      "website": "https://alexjohnson.dev"
+    }
+  },
+
+  "about": {
+    "introduction": "Hey there! I'm Alex, a senior Computer Science student at MIT with a deep passion for building impactful software. I thrive at the intersection of theory and practice — whether it's architecting scalable backend systems or crafting pixel-perfect UIs.",
+    "careerGoals": "I'm actively seeking full-time software engineering roles where I can contribute to meaningful products, grow as an engineer, and collaborate with world-class teams. Particularly interested in companies working on AI/ML, developer tools, or infrastructure.",
+    "interests": [
+      "Full-Stack Web Development",
+      "Machine Learning & AI",
+      "Cloud Architecture",
+      "Open Source",
+      "Competitive Programming",
+      "Tech Blogging",
+      "Hiking & Photography"
+    ],
+    "stats": [
+      { "label": "Projects Built", "value": "25+" },
+      { "label": "GitHub Stars", "value": "500+" },
+      { "label": "Hackathons Won", "value": "8" },
+      { "label": "Cups of Coffee", "value": "∞" }
+    ]
+  },
+
+  "skills": {
+    "categories": [
+      {
+        "id": "languages",
+        "name": "Languages",
+        "icon": "Code2",
+        "skills": [
+          { "id": "py", "name": "Python", "level": "Expert", "percentage": 95, "icon": "🐍" },
+          { "id": "js", "name": "JavaScript", "level": "Expert", "percentage": 92, "icon": "🟨" },
+          { "id": "ts", "name": "TypeScript", "level": "Advanced", "percentage": 85, "icon": "🔷" },
+          { "id": "java", "name": "Java", "level": "Advanced", "percentage": 80, "icon": "☕" },
+          { "id": "cpp", "name": "C++", "level": "Intermediate", "percentage": 70, "icon": "⚙️" },
+          { "id": "go", "name": "Go", "level": "Intermediate", "percentage": 65, "icon": "🐹" }
+        ]
+      },
+      {
+        "id": "frontend",
+        "name": "Frontend",
+        "icon": "Layout",
+        "skills": [
+          { "id": "react", "name": "React", "level": "Expert", "percentage": 92, "icon": "⚛️" },
+          { "id": "nextjs", "name": "Next.js", "level": "Advanced", "percentage": 85, "icon": "▲" },
+          { "id": "tailwind", "name": "Tailwind CSS", "level": "Expert", "percentage": 90, "icon": "🎨" },
+          { "id": "html", "name": "HTML/CSS", "level": "Expert", "percentage": 95, "icon": "🌐" },
+          { "id": "threejs", "name": "Three.js", "level": "Intermediate", "percentage": 60, "icon": "🔮" }
+        ]
+      },
+      {
+        "id": "backend",
+        "name": "Backend",
+        "icon": "Server",
+        "skills": [
+          { "id": "nodejs", "name": "Node.js", "level": "Advanced", "percentage": 85, "icon": "🟢" },
+          { "id": "fastapi", "name": "FastAPI", "level": "Advanced", "percentage": 82, "icon": "⚡" },
+          { "id": "django", "name": "Django", "level": "Advanced", "percentage": 80, "icon": "🎸" },
+          { "id": "graphql", "name": "GraphQL", "level": "Intermediate", "percentage": 70, "icon": "◆" },
+          { "id": "rest", "name": "REST APIs", "level": "Expert", "percentage": 90, "icon": "🔗" }
+        ]
+      },
+      {
+        "id": "database",
+        "name": "Databases",
+        "icon": "Database",
+        "skills": [
+          { "id": "postgresql", "name": "PostgreSQL", "level": "Advanced", "percentage": 82, "icon": "🐘" },
+          { "id": "mongodb", "name": "MongoDB", "level": "Advanced", "percentage": 78, "icon": "🍃" },
+          { "id": "redis", "name": "Redis", "level": "Intermediate", "percentage": 68, "icon": "🔴" },
+          { "id": "mysql", "name": "MySQL", "level": "Advanced", "percentage": 80, "icon": "🐬" }
+        ]
+      },
+      {
+        "id": "tools",
+        "name": "Tools & Cloud",
+        "icon": "Wrench",
+        "skills": [
+          { "id": "git", "name": "Git & GitHub", "level": "Expert", "percentage": 92, "icon": "🐙" },
+          { "id": "docker", "name": "Docker", "level": "Advanced", "percentage": 80, "icon": "🐳" },
+          { "id": "aws", "name": "AWS", "level": "Intermediate", "percentage": 70, "icon": "☁️" },
+          { "id": "linux", "name": "Linux", "level": "Advanced", "percentage": 82, "icon": "🐧" },
+          { "id": "figma", "name": "Figma", "level": "Intermediate", "percentage": 65, "icon": "🎭" }
+        ]
+      },
+      {
+        "id": "ml",
+        "name": "AI & ML",
+        "icon": "Brain",
+        "skills": [
+          { "id": "pytorch", "name": "PyTorch", "level": "Advanced", "percentage": 78, "icon": "🔥" },
+          { "id": "sklearn", "name": "Scikit-learn", "level": "Expert", "percentage": 88, "icon": "🤖" },
+          { "id": "tensorflow", "name": "TensorFlow", "level": "Intermediate", "percentage": 65, "icon": "📐" },
+          { "id": "pandas", "name": "Pandas/NumPy", "level": "Expert", "percentage": 90, "icon": "🐼" }
+        ]
+      }
+    ]
+  },
+
+  "projects": [
+    {
+      "id": "p1",
+      "title": "AI Code Review Assistant",
+      "description": "An intelligent code review tool powered by GPT-4 that analyzes pull requests, identifies bugs, suggests improvements, and enforces coding standards automatically.",
+      "techStack": ["Python", "FastAPI", "React", "GPT-4", "PostgreSQL", "Docker"],
+      "githubLink": "https://github.com/alexjohnson/ai-code-review",
+      "liveDemo": "https://ai-code-review.vercel.app",
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+      "featured": true,
+      "category": "AI/ML"
+    },
+    {
+      "id": "p2",
+      "title": "Real-Time Collaborative Whiteboard",
+      "description": "A feature-rich collaborative whiteboard app with real-time sync, shape drawing, sticky notes, and video conferencing integration. Used by 500+ teams.",
+      "techStack": ["Next.js", "Socket.IO", "Canvas API", "WebRTC", "MongoDB", "AWS"],
+      "githubLink": "https://github.com/alexjohnson/collab-whiteboard",
+      "liveDemo": "https://whiteboard-live.vercel.app",
+      "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80",
+      "featured": true,
+      "category": "Full-Stack"
+    },
+    {
+      "id": "p3",
+      "title": "DevTrack — Issue Tracker",
+      "description": "A lightweight, fast issue tracking system for small dev teams. Features Kanban boards, sprint planning, GitHub integration, and performance analytics.",
+      "techStack": ["React", "Node.js", "GraphQL", "PostgreSQL", "Redis"],
+      "githubLink": "https://github.com/alexjohnson/devtrack",
+      "liveDemo": "https://devtrack.vercel.app",
+      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+      "featured": false,
+      "category": "Full-Stack"
+    },
+    {
+      "id": "p4",
+      "title": "Neural Style Transfer App",
+      "description": "A web app that applies artistic styles to images using deep neural networks. Built a custom CNN model achieving 95% user satisfaction in blind tests.",
+      "techStack": ["Python", "PyTorch", "Flask", "React", "AWS S3"],
+      "githubLink": "https://github.com/alexjohnson/neural-style",
+      "liveDemo": "https://neural-style.vercel.app",
+      "image": "https://images.unsplash.com/photo-1561736778-92e52a7769ef?w=800&q=80",
+      "featured": false,
+      "category": "AI/ML"
+    },
+    {
+      "id": "p5",
+      "title": "CryptoWatch Dashboard",
+      "description": "A real-time cryptocurrency tracking dashboard with portfolio management, price alerts, and technical analysis charts for 500+ cryptocurrencies.",
+      "techStack": ["React", "TypeScript", "WebSockets", "Chart.js", "Node.js"],
+      "githubLink": "https://github.com/alexjohnson/cryptowatch",
+      "liveDemo": "https://cryptowatch.vercel.app",
+      "image": "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&q=80",
+      "featured": false,
+      "category": "Frontend"
+    },
+    {
+      "id": "p6",
+      "title": "SpeakAI — Voice Assistant",
+      "description": "A custom AI voice assistant with natural language understanding, smart home integration, custom wake word detection, and pluggable skill system.",
+      "techStack": ["Python", "PyTorch", "FastAPI", "React Native", "MQTT"],
+      "githubLink": "https://github.com/alexjohnson/speakai",
+      "liveDemo": "",
+      "image": "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=800&q=80",
+      "featured": false,
+      "category": "AI/ML"
+    }
+  ],
+
+  "education": [
+    {
+      "id": "e1",
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "Massachusetts Institute of Technology",
+      "location": "Cambridge, MA",
+      "startDate": "2021",
+      "endDate": "2025",
+      "cgpa": "3.9/4.0",
+      "description": "Specializing in Artificial Intelligence and Systems Engineering. Coursework includes Algorithms, Distributed Systems, Machine Learning, Computer Architecture, and Software Engineering.",
+      "logo": "🏛️",
+      "current": true
+    },
+    {
+      "id": "e2",
+      "degree": "High School Diploma — Science & Mathematics",
+      "institution": "Lincoln High School",
+      "location": "San Francisco, CA",
+      "startDate": "2017",
+      "endDate": "2021",
+      "cgpa": "4.0/4.0",
+      "description": "Valedictorian. Founded the school's first Coding Club with 50+ members. Won state-level Science Olympiad and Math Olympiad competitions.",
+      "logo": "🎓",
+      "current": false
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "ex1",
+      "role": "Software Engineering Intern",
+      "company": "Google",
+      "companyLogo": "🟦",
+      "location": "Mountain View, CA",
+      "duration": "Jun 2024 – Aug 2024",
+      "description": "Worked on Google Search infrastructure, improving index freshness by 18%. Built a distributed caching system that reduced p99 latency by 35%. Contributed to 3 production launches serving 1B+ users.",
+      "technologies": ["Go", "C++", "Kubernetes", "Spanner", "gRPC"],
+      "type": "Internship"
+    },
+    {
+      "id": "ex2",
+      "role": "Full-Stack Developer Intern",
+      "company": "Stripe",
+      "companyLogo": "💜",
+      "location": "San Francisco, CA (Remote)",
+      "duration": "Jan 2024 – May 2024",
+      "description": "Built developer dashboard features for Stripe's Radar fraud detection product. Implemented 5 new API endpoints and a React dashboard with real-time fraud analytics.",
+      "technologies": ["React", "TypeScript", "Ruby on Rails", "PostgreSQL", "Redis"],
+      "type": "Internship"
+    },
+    {
+      "id": "ex3",
+      "role": "Research Assistant — AI Lab",
+      "company": "MIT CSAIL",
+      "companyLogo": "🔬",
+      "location": "Cambridge, MA",
+      "duration": "Sep 2022 – Dec 2023",
+      "description": "Conducted research on large language model efficiency. Co-authored 2 papers on model pruning techniques that achieved 40% size reduction with <2% accuracy loss. Results published at NeurIPS 2023.",
+      "technologies": ["PyTorch", "Python", "CUDA", "HuggingFace", "LaTeX"],
+      "type": "Research"
+    },
+    {
+      "id": "ex4",
+      "role": "Teaching Assistant — Data Structures",
+      "company": "MIT EECS Department",
+      "companyLogo": "📚",
+      "location": "Cambridge, MA",
+      "duration": "Sep 2022 – Present",
+      "description": "TA for 6.006 Introduction to Algorithms with 300+ students. Hold weekly office hours, grade assignments, and create supplementary study materials. Rated 4.9/5.0 by students.",
+      "technologies": ["Python", "Java", "C++", "LaTeX"],
+      "type": "Academic"
+    }
+  ],
+
+  "achievements": [
+    {
+      "id": "a1",
+      "title": "1st Place — HackMIT 2023",
+      "description": "Won first place among 2,000+ participants for building an AI-powered accessibility tool that helps visually impaired users navigate websites using natural language.",
+      "date": "October 2023",
+      "certificateLink": "https://hackmit.org/2023/winners",
+      "icon": "🏆",
+      "category": "Hackathon"
+    },
+    {
+      "id": "a2",
+      "title": "Google Summer of Code 2023",
+      "description": "Selected as a GSoC contributor for the Python Software Foundation. Implemented significant improvements to the CPython garbage collector.",
+      "date": "Summer 2023",
+      "certificateLink": "https://summerofcode.withgoogle.com",
+      "icon": "🌟",
+      "category": "Open Source"
+    },
+    {
+      "id": "a3",
+      "title": "ACM ICPC — North America Regionals",
+      "description": "Placed in the top 50 teams out of 3,000+ at the ACM International Collegiate Programming Contest North America Regionals.",
+      "date": "November 2023",
+      "certificateLink": "",
+      "icon": "⚡",
+      "category": "Competitive Programming"
+    },
+    {
+      "id": "a4",
+      "title": "MIT Presidential Fellowship",
+      "description": "Awarded the prestigious MIT Presidential Fellowship for academic excellence and research contributions. $25,000 annual award.",
+      "date": "September 2023",
+      "certificateLink": "",
+      "icon": "🎖️",
+      "category": "Academic"
+    },
+    {
+      "id": "a5",
+      "title": "Best Paper Award — NeurIPS 2023",
+      "description": "Co-authored paper 'Efficient LLM Pruning via Gradient-Free Magnitude Scoring' received the Best Student Paper award.",
+      "date": "December 2023",
+      "certificateLink": "https://neurips.cc/2023",
+      "icon": "📜",
+      "category": "Research"
+    }
+  ],
+
+  "certifications": [
+    {
+      "id": "c1",
+      "name": "AWS Certified Solutions Architect — Associate",
+      "issuer": "Amazon Web Services",
+      "issueDate": "March 2024",
+      "expiryDate": "March 2027",
+      "certificateUrl": "https://aws.amazon.com/certification",
+      "badge": "☁️",
+      "credentialId": "AWS-SAA-2024-XXXXX"
+    },
+    {
+      "id": "c2",
+      "name": "Google Professional Cloud Developer",
+      "issuer": "Google Cloud",
+      "issueDate": "January 2024",
+      "expiryDate": "January 2026",
+      "certificateUrl": "https://cloud.google.com/certification",
+      "badge": "🟦",
+      "credentialId": "GCP-PCD-2024-XXXXX"
+    },
+    {
+      "id": "c3",
+      "name": "TensorFlow Developer Certificate",
+      "issuer": "Google / TensorFlow",
+      "issueDate": "August 2023",
+      "expiryDate": "August 2026",
+      "certificateUrl": "https://tensorflow.org/certificate",
+      "badge": "🤖",
+      "credentialId": "TF-DEV-2023-XXXXX"
+    },
+    {
+      "id": "c4",
+      "name": "Meta Frontend Developer Professional",
+      "issuer": "Meta / Coursera",
+      "issueDate": "June 2023",
+      "expiryDate": null,
+      "certificateUrl": "https://coursera.org/verify",
+      "badge": "💙",
+      "credentialId": "META-FE-2023-XXXXX"
+    },
+    {
+      "id": "c5",
+      "name": "GitHub Actions — CI/CD",
+      "issuer": "GitHub",
+      "issueDate": "November 2023",
+      "expiryDate": null,
+      "certificateUrl": "https://github.com/certifications",
+      "badge": "🐙",
+      "credentialId": "GH-ACTIONS-2023-XXXXX"
+    }
+  ],
+
+  "contact": {
+    "email": "alex.johnson@mit.edu",
+    "phone": "+1 (617) 555-0192",
+    "location": "Cambridge, MA, USA",
+    "github": "https://github.com/alexjohnson",
+    "linkedin": "https://linkedin.com/in/alexjohnson",
+    "twitter": "https://twitter.com/alexjohnson",
+    "website": "https://alexjohnson.dev",
+    "availability": "Open to full-time roles starting May 2025",
+    "preferredContact": "Email or LinkedIn"
+  }
+}
