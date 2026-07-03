@@ -317,6 +317,11 @@ export default function AdminPanel({ onLogout }) {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [resetConfirmText, setResetConfirmText] = useState('');
+
+  React.useEffect(() => {
+    setResetConfirmText('');
+  }, [showResetConfirm]);
 
   const currentSection = SECTIONS.find((s) => s.id === activeSection);
   const ActiveComponent = currentSection?.component || null;
@@ -675,6 +680,30 @@ export default function AdminPanel({ onLogout }) {
               <p className={`text-sm mb-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 This will reset <strong>all sections</strong> to the default demo data — Hero, About, Skills, Projects, Education, Experience, Achievements, Certifications, and Contact. This action cannot be undone.
               </p>
+
+              <div className="mb-6">
+                <p className={`text-sm font-medium mb-2 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                  Type <strong className={isDark ? 'text-white' : 'text-slate-900'}>RESET PORTFOLIO</strong> to enable the Reset All button.
+                </p>
+                <input
+                  type="text"
+                  value={resetConfirmText}
+                  onChange={(e) => setResetConfirmText(e.target.value)}
+                  placeholder="Type RESET PORTFOLIO"
+                  autoComplete="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-all outline-none ${
+                    isDark
+                      ? 'bg-dark-900/50 border-white/10 text-white placeholder-slate-500 focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50'
+                      : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50'
+                  }`}
+                />
+                <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+                  Type <strong>RESET PORTFOLIO</strong> exactly as shown to enable the Reset All button.
+                </p>
+              </div>
+
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowResetConfirm(false)}
@@ -684,7 +713,8 @@ export default function AdminPanel({ onLogout }) {
                 </button>
                 <button
                   onClick={() => { actions.resetToDefault(); setShowResetConfirm(false); setActiveSection('dashboard'); }}
-                  className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-sm font-medium rounded-xl transition-colors"
+                  disabled={resetConfirmText.trim() !== 'RESET PORTFOLIO'}
+                  className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-sm font-medium rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   id="confirm-reset-btn"
                 >
                   Reset All
