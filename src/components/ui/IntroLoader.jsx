@@ -14,7 +14,7 @@ const STATUS = [
   'Loading awesome stuff...',
   'Compiling React...',
   'Initializing Portfolio...',
-  'Connecting Supabase...',
+  'Connecting Database...',
   'Loading Projects...',
   'Preparing Experience...',
   'Optimizing Assets...',

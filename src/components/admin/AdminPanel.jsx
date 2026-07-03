@@ -534,6 +534,14 @@ export default function AdminPanel({ onLogout }) {
                 {isDark ? <Sun size={15} /> : <Moon size={15} />}
                 {isDark ? 'Light Mode' : 'Dark Mode'}
               </button>
+              <button
+                onClick={() => setShowResetConfirm(true)}
+                className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-red-400 hover:bg-red-500/10 transition-colors"
+                id="admin-reset-btn"
+              >
+                <RefreshCw size={15} />
+                Reset to Default
+              </button>
               <button onClick={onLogout} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isDark ? 'text-slate-400 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:bg-slate-100'}`}>
                 <LogOut size={15} /> Logout
               </button>
