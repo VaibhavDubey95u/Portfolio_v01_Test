@@ -183,9 +183,9 @@ export const portfolioService = {
 
   // MESSAGES specific
   async addMessage(data) {
-    const { data: result, error } = await supabase.from('messages').insert(objToSnake(data)).select().single();
+    const { error } = await supabase.from('messages').insert(objToSnake(data));
     if (error) throw error;
-    return objToCamel(result);
+    return true;
   },
 
   async getMessages(page = 1, pageSize = 20) {
