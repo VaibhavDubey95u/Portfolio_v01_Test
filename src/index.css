@@ -229,12 +229,418 @@
   to { width: 100%; }
 }
 
+/* ─────────────────────────────────────────────
+   Intro Loader — legacy class aliases kept for safety
+───────────────────────────────────────────── */
+
 /* Particle canvas */
 #particles-canvas {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Intro Loader v4 — Living Developer Workstation  (.il-*)
+───────────────────────────────────────────────────────────────── */
+
+/* Root */
+.il-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: opacity;
+}
+
+/* Cinematic vignette */
+.il-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Background glow orbs ── */
+.il-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.il-bg-glow--blue {
+  width: 720px;
+  height: 720px;
+  top: -12%;
+  left: 50%;
+  transform: translateX(-60%);
+  background: radial-gradient(circle,
+    rgba(37, 99, 235, 0.26) 0%,
+    rgba(37, 99, 235, 0.05) 52%,
+    transparent 68%
+  );
+  animation: il-orb 6s ease-in-out infinite;
+}
+
+.il-bg-glow--cyan {
+  width: 520px;
+  height: 520px;
+  bottom: -2%;
+  right: 3%;
+  background: radial-gradient(circle,
+    rgba(6, 182, 212, 0.2) 0%,
+    transparent 62%
+  );
+  animation: il-orb 7.5s ease-in-out infinite 2s;
+}
+
+.il-bg-glow--purple {
+  width: 400px;
+  height: 400px;
+  top: 8%;
+  left: 0%;
+  background: radial-gradient(circle,
+    rgba(139, 92, 246, 0.15) 0%,
+    transparent 62%
+  );
+  animation: il-orb 6.8s ease-in-out infinite 1s;
+}
+
+@keyframes il-orb {
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%       { transform: scale(1.14); opacity: 0.6; }
+}
+
+/* Particle dot */
+.il-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* ── Center stage ── */
+.il-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 680px;
+  padding: 0 1rem;
+}
+
+/* Halo glow */
+.il-laptop-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+  width: 560px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse,
+    rgba(37, 99, 235, 0.36) 0%,
+    rgba(6, 182, 212, 0.16) 42%,
+    transparent 68%
+  );
+  pointer-events: none;
+  filter: blur(28px);
+  will-change: opacity, transform;
+}
+
+/* Laptop container */
+.il-laptop-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 620px;   /* ~22% larger than previous 520px */
+  will-change: transform, opacity;
+}
+
+/* SVG */
+.il-laptop-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 28px 52px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 8px 22px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 50px rgba(37, 99, 235, 0.26));
+}
+
+/* Screen glow pulse overlay */
+.il-screen-pulse {
+  position: absolute;
+  top: 11.5%;
+  left: 12.4%;
+  width: 75%;
+  height: 50%;
+  border-radius: 4px;
+  background: radial-gradient(ellipse,
+    rgba(6, 182, 212, 0.26) 0%,
+    rgba(37, 99, 235, 0.1) 48%,
+    transparent 74%
+  );
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+/* Animated screen gloss sweep */
+.il-screen-gloss {
+  position: absolute;
+  top: 11.5%;
+  left: 0;              /* driven by Framer Motion x */
+  width: 22%;
+  height: 50%;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.045) 45%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.045) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  will-change: transform;
+  border-radius: 2px;
+}
+
+/* ── Editor overlay ── */
+.il-editor-overlay {
+  position: absolute;
+  top: 12.3%;
+  left: 12.4%;
+  width: 75.2%;
+  height: 50%;
+  overflow: hidden;
+  border-radius: 1px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tab bar */
+.il-editor-tabbar {
+  display: flex;
+  align-items: stretch;
+  background: rgba(7, 13, 24, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+  height: clamp(11px, 2.3vw, 17px);
+  overflow: hidden;
+}
+
+.il-editor-tab {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 0.5vw, 4px);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: clamp(4px, 0.9vw, 6.5px);
+  color: rgba(148, 163, 184, 0.48);
+  padding: 0 clamp(4px, 1vw, 9px);
+  border-right: 1px solid rgba(255, 255, 255, 0.045);
+  white-space: nowrap;
+  cursor: default;
+  flex-shrink: 0;
+}
+
+.il-editor-tab--active {
+  color: rgba(203, 213, 225, 0.92);
+  background: rgba(255, 255, 255, 0.044);
+  border-bottom: 1.5px solid #0EA5E9;
+}
+
+/* Colored dot on tab */
+.il-tab-dot {
+  display: inline-block;
+  width: clamp(3px, 0.65vw, 5px);
+  height: clamp(3px, 0.65vw, 5px);
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.2);
+  flex-shrink: 0;
+}
+.il-tab-dot--blue { background: #0EA5E9; }
+
+/* Scrollable area */
+.il-editor-scroll {
+  flex: 1;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 52%, transparent 96%);
+}
+
+/* Code inner */
+.il-editor-inner {
+  padding: 2px 0 24px 0;
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+  font-size: clamp(5px, 1.1vw, 8.5px);
+  line-height: 1.68;
+  will-change: contents;
+}
+
+/* Code row */
+.il-code-line {
+  display: flex;
+  align-items: baseline;
+  white-space: pre;
+  min-height: 1.68em;
+  padding-right: 6px;
+}
+
+/* Active line highlight */
+.il-code-line--active {
+  background: rgba(255, 255, 255, 0.028);
+}
+
+/* Line number */
+.il-line-num {
+  display: inline-block;
+  width: 2.6em;
+  text-align: right;
+  padding-right: 0.6em;
+  color: rgba(100, 116, 139, 0.38);
+  font-size: 0.8em;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Code content */
+.il-line-code {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Cursor — VS Code block style */
+.il-cursor {
+  display: inline-block;
+  width: 0.52ch;
+  height: 1.02em;
+  background: rgba(14, 165, 233, 0.92);
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  will-change: opacity;
+  box-shadow: 0 0 5px rgba(14, 165, 233, 0.65), 0 0 10px rgba(14, 165, 233, 0.3);
+}
+
+/* ── Progress bar ── */
+.il-progress-outer {
+  width: clamp(320px, 76%, 440px);
+}
+
+.il-progress-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 99px;
+  background: rgba(148, 163, 184, 0.09);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.il-progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg,
+    #1D4ED8 0%,
+    #2563EB 25%,
+    #0891B2 65%,
+    #06B6D4 85%,
+    #38BDF8 100%
+  );
+  box-shadow:
+    0 0 12px rgba(6, 182, 212, 0.75),
+    0 0 24px rgba(37, 99, 235, 0.4);
+  position: relative;
+  overflow: hidden;
+  will-change: width;
+}
+
+/* Shine sweep */
+.il-progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.58) 50%,
+    transparent 100%
+  );
+  background-size: 48% 100%;
+  animation: il-shine 1.0s ease-in-out infinite;
+}
+
+@keyframes il-shine {
+  0%   { background-position: -48% 0; }
+  100% { background-position: 162% 0; }
+}
+
+/* Status label */
+.il-label-wrap {
+  height: 1.45em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.il-label {
+  margin: 0;
+  font-size: 0.77rem;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.048em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Bottom wrapper */
+.il-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .il-stage        { gap: 20px; max-width: 100%; }
+  .il-laptop-wrap  { max-width: 420px; }
+  .il-progress-outer { width: calc(100vw - 3rem); }
+  .il-bg-glow--blue  { width: 380px; height: 380px; }
+  .il-bg-glow--cyan  { width: 280px; height: 280px; }
+  .il-bg-glow--purple { display: none; }
+  .il-laptop-halo  { width: 340px; height: 220px; }
+}
+
+@media (max-width: 420px) {
+  .il-laptop-wrap { max-width: 320px; }
+  .il-label       { font-size: 0.7rem; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .il-bg-glow--blue,
+  .il-bg-glow--cyan,
+  .il-bg-glow--purple { animation: none !important; }
+  .il-progress-fill::after { animation: none !important; }
+  .il-cursor { animation: none !important; opacity: 1 !important; }
+  .il-screen-gloss { display: none; }
+}
+
+
+
 
 /* ─────────────────────────────────────────
    Skeleton / shimmer loader

@@ -1,48 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import Portfolio from './pages/Portfolio';
 import Admin from './pages/Admin';
 import ResetPassword from './pages/ResetPassword';
-
-function LoadingScreen({ onDone }) {
-  useEffect(() => {
-    const t = setTimeout(onDone, 1800);
-    return () => clearTimeout(t);
-  }, [onDone]);
-
-  return (
-    <motion.div
-      className="loading-screen"
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4 }}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="loading-logo"
-      >
-        {'<Portfolio />'}
-      </motion.div>
-      <div className="loading-bar">
-        <div className="loading-bar-fill" />
-      </div>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        style={{ color: '#475569', fontSize: '0.75rem', fontFamily: 'Inter, sans-serif' }}
-      >
-        Loading awesome stuff...
-      </motion.p>
-    </motion.div>
-  );
-}
+import IntroLoader from './components/ui/IntroLoader';
 
 function AppContent() {
   const { isDark } = useTheme();
@@ -68,7 +34,7 @@ function AppContent() {
 
       <AnimatePresence mode="wait">
         {loading && (
-          <LoadingScreen key="loading" onDone={() => setLoading(false)} />
+          <IntroLoader key="intro" onDone={() => setLoading(false)} />
         )}
       </AnimatePresence>
 
