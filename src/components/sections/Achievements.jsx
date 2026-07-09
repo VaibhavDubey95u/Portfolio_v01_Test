@@ -81,7 +81,7 @@ export default function Achievements() {
                       whileTap={{ filter: isDark ? 'brightness(1.2)' : 'brightness(0.8)', transition: { duration: 0.08, delay: 0 } }}
                       onClick={(e) => {
                         e.preventDefault();
-                        setTimeout(() => window.open(achievement.certificateLink, '_blank'), 120);
+                        setTimeout(() => window.open(achievement.certificateLink, '_blank'), 150);
                       }}
                       className="inline-flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors font-medium relative before:absolute before:-inset-2 before:content-['']"
                     >

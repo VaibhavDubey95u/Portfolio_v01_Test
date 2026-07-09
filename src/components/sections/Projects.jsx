@@ -73,7 +73,7 @@ function ProjectCard({ project, isDark, delay = 0 }) {
                   onClick={(e) => {
                     e.stopPropagation();
                     e.preventDefault();
-                    setTimeout(() => window.open(project.githubLink, '_blank'), 120);
+                    setTimeout(() => window.open(project.githubLink, '_blank'), 200);
                   }}
                 >
                   <Github size={14} />
@@ -93,7 +93,7 @@ function ProjectCard({ project, isDark, delay = 0 }) {
                   onClick={(e) => {
                     e.stopPropagation();
                     e.preventDefault();
-                    setTimeout(() => window.open(project.liveDemo, '_blank'), 120);
+                    setTimeout(() => window.open(project.liveDemo, '_blank'), 180);
                   }}
                 >
                   <ExternalLink size={14} />

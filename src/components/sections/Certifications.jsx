@@ -76,7 +76,7 @@ export default function Certifications() {
                   whileTap={{ filter: isDark ? 'brightness(1.2)' : 'brightness(0.8)', transition: { duration: 0.08, delay: 0 } }}
                   onClick={(e) => {
                     e.preventDefault();
-                    setTimeout(() => window.open(cert.certificateUrl, '_blank'), 120);
+                    setTimeout(() => window.open(cert.certificateUrl, '_blank'), 150);
                   }}
                   className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors group relative before:absolute before:-inset-2 before:content-['']"
                 >
