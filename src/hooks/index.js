@@ -70,25 +70,54 @@ export function useScrollReveal(threshold = 0.1) {
 // Hook for active section tracking
 export function useActiveSection(sectionIds) {
   const [activeSection, setActiveSection] = useState('');
+  
+  // Create a stable dependency string to prevent unnecessary re-attachments
+  const sectionIdsStr = sectionIds.join(',');
 
   useEffect(() => {
-    const observers = {};
+    let ticking = false;
+    const ids = sectionIdsStr.split(',').filter(Boolean);
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Use the center of the viewport for robust detection
+          const viewportCenter = window.innerHeight / 2;
+          let current = '';
 
-      observers[id] = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { threshold: 0.4, rootMargin: '-80px 0px -80px 0px' }
-      );
-      observers[id].observe(el);
-    });
+          for (const id of ids) {
+            const el = document.getElementById(id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              // Check if the center of the viewport falls within this section
+              if (rect.top <= viewportCenter && rect.bottom > viewportCenter) {
+                current = id;
+                break;
+              }
+            }
+          }
 
-    return () => Object.values(observers).forEach((obs) => obs.disconnect());
-  }, [sectionIds]);
+          // Fallback: If scrolled to the absolute bottom, activate the last section
+          const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
+          if (isAtBottom && ids.length > 0) {
+            current = ids[ids.length - 1];
+          }
+
+          if (current) {
+            setActiveSection(current);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Call once to set initial state
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sectionIdsStr]);
 
   return activeSection;
 }
