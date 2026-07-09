@@ -89,7 +89,7 @@ export default function Navbar() {
             {/* Logo */}
             <motion.button
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+              whileTap={{ filter: isDark ? 'brightness(1.2)' : 'brightness(0.8)' }}
               transition={{ duration: 0.08 }}
               onClick={() => handleNavClick('hero')}
               className="flex items-center gap-2 group"
@@ -139,7 +139,7 @@ export default function Navbar() {
               {/* Theme Toggle */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                whileTap={{ backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }}
                 transition={{ duration: 0.08 }}
                 onClick={toggleTheme}
                 id="theme-toggle"
@@ -167,7 +167,7 @@ export default function Navbar() {
               <Link to="/admin">
                 <motion.button
                   whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }}
                   id="admin-link"
                   className={`p-2 rounded-lg transition-colors duration-200 ${
                     isDark
@@ -290,7 +290,7 @@ export default function Navbar() {
                     Download Resume
                   </motion.a>
                   <Link to="/admin" onClick={() => setIsOpen(false)}>
-                    <motion.button className="btn-outline w-full flex items-center justify-center gap-2 text-sm" whileTap={{  scale:0.97 }} type="button">
+                    <motion.button className="btn-outline w-full flex items-center justify-center gap-2 text-sm" whileTap={{ backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }} type="button">
                       <Settings size={14} />
                       Admin Panel
                     </motion.button>

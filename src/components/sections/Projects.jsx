@@ -68,7 +68,7 @@ function ProjectCard({ project, isDark, delay = 0 }) {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.05 }}
-                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                  whileTap={{ filter: 'brightness(1.2)', transition: { duration: 0.08, delay: 0 } }}
                   className="relative before:absolute before:-inset-2 before:content-[''] flex items-center gap-1.5 px-3 py-1.5 bg-dark-800/90 backdrop-blur text-white text-xs font-medium rounded-lg border border-white/20 hover:bg-dark-700 transition-colors"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -88,7 +88,7 @@ function ProjectCard({ project, isDark, delay = 0 }) {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
-                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                  whileTap={{ filter: 'brightness(1.2)', transition: { duration: 0.08, delay: 0 } }}
                   className="relative before:absolute before:-inset-2 before:content-[''] flex items-center gap-1.5 px-3 py-1.5 bg-primary-600/90 backdrop-blur text-white text-xs font-medium rounded-lg hover:bg-primary-500 transition-colors"
                   onClick={(e) => {
                     e.stopPropagation();

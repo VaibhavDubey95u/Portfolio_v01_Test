@@ -78,7 +78,7 @@ export default function Achievements() {
                       href={achievement.certificateLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                      whileTap={{ filter: isDark ? 'brightness(1.2)' : 'brightness(0.8)', transition: { duration: 0.08, delay: 0 } }}
                       onClick={(e) => {
                         e.preventDefault();
                         setTimeout(() => window.open(achievement.certificateLink, '_blank'), 120);

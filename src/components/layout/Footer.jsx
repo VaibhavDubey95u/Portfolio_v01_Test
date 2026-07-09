@@ -59,7 +59,7 @@ export default function Footer() {
               {FOOTER_LINKS.map((link) => (
                 <li key={link.id}>
                   <motion.button
-                    whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                    whileTap={{ filter: isDark ? 'brightness(1.2)' : 'brightness(0.8)' }}
                     transition={{ duration: 0.08 }}
                     onClick={() => setTimeout(() => scrollToSection(link.id), 120)}
                     className={`text-sm transition-colors duration-200 ${
@@ -88,7 +88,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                  whileTap={{ backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }}
                   transition={{ duration: 0.08 }}
                   onClick={(e) => {
                     e.preventDefault();

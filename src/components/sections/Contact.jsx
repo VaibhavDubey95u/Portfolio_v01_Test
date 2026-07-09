@@ -109,7 +109,7 @@ export default function Contact() {
                   key={label}
                   href={href}
                   whileHover={{ x: 4 }}
-                  whileTap={href ? { scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' } : undefined}
+                  whileTap={href ? { filter: isDark ? 'brightness(1.2)' : 'brightness(0.8)' } : undefined}
                   transition={{ duration: 0.08 }}
                   onClick={href ? (e) => {
                     e.preventDefault();
