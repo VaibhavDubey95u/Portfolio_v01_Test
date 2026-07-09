@@ -58,8 +58,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.id}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
+                  <motion.button
+                    whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                    transition={{ duration: 0.08 }}
+                    onClick={() => setTimeout(() => scrollToSection(link.id), 120)}
                     className={`text-sm transition-colors duration-200 ${
                       isDark
                         ? 'text-slate-400 hover:text-white'
@@ -67,7 +69,7 @@ export default function Footer() {
                     }`}
                   >
                     {link.label}
-                  </button>
+                  </motion.button>
                 </li>
               ))}
             </ul>
@@ -86,7 +88,12 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                  transition={{ duration: 0.08 }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setTimeout(() => window.open(href, '_blank'), 120);
+                  }}
                   className={`p-2 rounded-lg transition-colors duration-200 ${
                     isDark
                       ? 'bg-white/10 text-slate-400 hover:text-white hover:bg-white/20'

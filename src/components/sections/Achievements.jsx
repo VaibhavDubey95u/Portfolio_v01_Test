@@ -74,14 +74,19 @@ export default function Achievements() {
                     {achievement.date}
                   </span>
                   {achievement.certificateLink && (
-                    <a
+                    <motion.a
                       href={achievement.certificateLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors font-medium"
+                      whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setTimeout(() => window.open(achievement.certificateLink, '_blank'), 120);
+                      }}
+                      className="inline-flex items-center gap-1 text-xs text-primary-400 hover:text-primary-300 transition-colors font-medium relative before:absolute before:-inset-2 before:content-['']"
                     >
                       View <ExternalLink size={11} />
-                    </a>
+                    </motion.a>
                   )}
                 </div>
               </div>

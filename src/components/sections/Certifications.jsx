@@ -69,18 +69,23 @@ export default function Certifications() {
               </div>
 
               {cert.certificateUrl && (
-                <a
+                <motion.a
                   href={cert.certificateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 flex items-center gap-1.5 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors group"
+                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setTimeout(() => window.open(cert.certificateUrl, '_blank'), 120);
+                  }}
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors group relative before:absolute before:-inset-2 before:content-['']"
                 >
                   View Certificate
                   <ExternalLink
                     size={11}
                     className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                   />
-                </a>
+                </motion.a>
               )}
             </div>
           </motion.div>

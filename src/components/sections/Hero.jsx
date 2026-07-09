@@ -173,7 +173,8 @@ export default function Hero() {
                 href={hero?.resumeLink || '#'}
                 download
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                transition={{ duration: 0.08 }}
                 className={`btn-primary flex items-center gap-2 ${!hero?.resumeLink ? 'opacity-50 pointer-events-none' : ''}`}
                 id="hero-download-resume"
               >
@@ -182,8 +183,9 @@ export default function Hero() {
               </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('projects')}
+                whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                transition={{ duration: 0.08 }}
+                onClick={() => setTimeout(() => scrollToSection('projects'), 120)}
                 className="btn-outline flex items-center gap-2"
                 id="hero-view-projects"
               >
@@ -209,7 +211,15 @@ export default function Hero() {
                       target={key !== 'email' ? '_blank' : undefined}
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.2, y: -3 }}
-                      whileTap={{ scale: 0.9 }}
+                      whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                      transition={{ duration: 0.08 }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setTimeout(() => {
+                          if (key !== 'email') window.open(`${prefix}${href}`, '_blank');
+                          else window.location.href = `${prefix}${href}`;
+                        }, 120);
+                      }}
                       className={`p-2.5 rounded-xl transition-all duration-200 ${
                         isDark
                           ? 'bg-white/10 text-slate-400 hover:text-white hover:bg-primary-600/30 hover:shadow-glow'
@@ -290,7 +300,10 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
-          onClick={() => scrollToSection('about')}
+          onClick={(e) => {
+            // Need to apply delay manually because it's a div
+            setTimeout(() => scrollToSection('about'), 120);
+          }}
         >
           <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
             Scroll down

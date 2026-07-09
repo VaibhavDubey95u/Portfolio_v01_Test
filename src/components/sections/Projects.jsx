@@ -68,8 +68,13 @@ function ProjectCard({ project, isDark, delay = 0 }) {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.05 }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-dark-800/90 backdrop-blur text-white text-xs font-medium rounded-lg border border-white/20 hover:bg-dark-700 transition-colors"
-                  onClick={(e) => e.stopPropagation()}
+                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                  className="relative before:absolute before:-inset-2 before:content-[''] flex items-center gap-1.5 px-3 py-1.5 bg-dark-800/90 backdrop-blur text-white text-xs font-medium rounded-lg border border-white/20 hover:bg-dark-700 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    setTimeout(() => window.open(project.githubLink, '_blank'), 120);
+                  }}
                 >
                   <Github size={14} />
                   GitHub
@@ -83,8 +88,13 @@ function ProjectCard({ project, isDark, delay = 0 }) {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-primary-600/90 backdrop-blur text-white text-xs font-medium rounded-lg hover:bg-primary-500 transition-colors"
-                  onClick={(e) => e.stopPropagation()}
+                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)', transition: { duration: 0.08, delay: 0 } }}
+                  className="relative before:absolute before:-inset-2 before:content-[''] flex items-center gap-1.5 px-3 py-1.5 bg-primary-600/90 backdrop-blur text-white text-xs font-medium rounded-lg hover:bg-primary-500 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    setTimeout(() => window.open(project.liveDemo, '_blank'), 120);
+                  }}
                 >
                   <ExternalLink size={14} />
                   Live Demo
@@ -241,7 +251,8 @@ export default function Projects() {
             <motion.button
               key={cat}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+              transition={{ duration: 0.08 }}
               onClick={() => setActiveFilter(cat)}
               className={`px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                 activeFilter === cat

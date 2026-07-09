@@ -102,27 +102,33 @@ export default function Contact() {
 
           {/* Contact items */}
           <div className="space-y-4">
-            {contactItems.map(({ icon: Icon, label, value, href }) => (
-              <motion.div
-                key={label}
-                whileHover={{ x: 4 }}
-                className="flex items-center gap-4"
-              >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600/30 to-secondary-500/30 border border-primary-500/20 flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-primary-400" />
-                </div>
-                <div>
-                  <p className={`text-xs mb-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{label}</p>
-                  {href ? (
-                    <a href={href} className={`text-sm font-medium hover:text-primary-400 transition-colors ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+            {contactItems.map(({ icon: Icon, label, value, href }) => {
+              const Wrapper = href ? motion.a : motion.div;
+              return (
+                <Wrapper
+                  key={label}
+                  href={href}
+                  whileHover={{ x: 4 }}
+                  whileTap={href ? { scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' } : undefined}
+                  transition={{ duration: 0.08 }}
+                  onClick={href ? (e) => {
+                    e.preventDefault();
+                    setTimeout(() => window.location.href = href, 120);
+                  } : undefined}
+                  className="flex items-center gap-4 cursor-pointer"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-600/30 to-secondary-500/30 border border-primary-500/20 flex items-center justify-center flex-shrink-0">
+                    <Icon size={18} className="text-primary-400" />
+                  </div>
+                  <div>
+                    <p className={`text-xs mb-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{label}</p>
+                    <p className={`text-sm font-medium transition-colors ${href ? 'hover:text-primary-400' : ''} ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
                       {value}
-                    </a>
-                  ) : (
-                    <p className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>{value}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                    </p>
+                  </div>
+                </Wrapper>
+              );
+            })}
           </div>
 
           {/* Social links */}
@@ -141,7 +147,12 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.15, y: -3 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                    transition={{ duration: 0.08 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setTimeout(() => window.open(href, '_blank'), 120);
+                    }}
                     className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200 ${
                       isDark
                         ? `bg-white/10 text-slate-400 border border-white/10 hover:border-primary-500/40 hover:shadow-glow ${color}`
@@ -247,7 +258,8 @@ export default function Contact() {
                   type="submit"
                   disabled={status === 'sending'}
                   whileHover={{ scale: status === 'sending' ? 1 : 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                  transition={{ duration: 0.08 }}
                   id="contact-submit"
                   className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >

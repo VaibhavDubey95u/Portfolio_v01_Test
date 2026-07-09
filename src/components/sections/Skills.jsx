@@ -75,7 +75,8 @@ export default function Skills() {
       <div className="flex flex-wrap justify-center gap-2 mb-12">
         <motion.button
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+          transition={{ duration: 0.08 }}
           onClick={() => setActiveCategory('all')}
           className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
             activeCategory === 'all'
@@ -91,7 +92,8 @@ export default function Skills() {
           <motion.button
             key={cat.id}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+            transition={{ duration: 0.08 }}
             onClick={() => setActiveCategory(cat.id)}
             className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
               activeCategory === cat.id

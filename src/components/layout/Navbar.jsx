@@ -23,6 +23,11 @@ export default function Navbar() {
   const { isDark, toggleTheme } = useTheme();
   const { data } = usePortfolio();
   const [isOpen, setIsOpen] = useState(false);
+
+  // ----------
+  const [viewportTop, setViewportTop] = useState(0);
+
+  // -------------
   const scrollY = useScrollPosition();
   const activeSection = useActiveSection(NAV_ITEMS.map((n) => n.id));
   const location = useLocation();
@@ -30,35 +35,62 @@ export default function Navbar() {
 
   const isScrolled = scrollY > 20;
 
+  // new line
+  useEffect(() => {
+    const viewport = window.visualViewport;
+
+    if (!viewport) return;
+
+    const update = () => {
+        setViewportTop(viewport.offsetTop);
+    };
+
+    update();
+
+    viewport.addEventListener("resize", update);
+    viewport.addEventListener("scroll", update);
+
+    return () => {
+        viewport.removeEventListener("resize", update);
+        viewport.removeEventListener("scroll", update);
+    };
+}, []);
+
+  // ----------
+
   const handleNavClick = (id) => {
-    if (!isHomePage) {
-      window.location.href = `/#${id}`;
-      return;
-    }
-    scrollToSection(id);
-    setIsOpen(false);
+    setTimeout(() => {
+      if (!isHomePage) {
+        window.location.href = `/#${id}`;
+        return;
+      }
+      scrollToSection(id);
+      setIsOpen(false);
+    }, 120);
   };
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? isDark
-              ? 'bg-dark-900/95 backdrop-blur-xl border-b border-white/10 shadow-glass'
-              : 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm'
-            : 'bg-transparent'
-        }`}
-      >
+      <nav className="fixed inset-x-0 z-50"   style={{ top: viewportTop }}>
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className={`w-full transition-all duration-300 pt-[env(safe-area-inset-top)] ${
+            isScrolled
+              ? isDark
+                ? 'bg-dark-900/95 backdrop-blur-xl border-b border-white/10 shadow-glass'
+                : 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm'
+              : 'bg-transparent'
+          }`}
+        >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <motion.button
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+              transition={{ duration: 0.08 }}
               onClick={() => handleNavClick('hero')}
               className="flex items-center gap-2 group"
             >
@@ -75,7 +107,9 @@ export default function Navbar() {
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
               {NAV_ITEMS.map((item) => (
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                  transition={{ duration: 0.08 }}
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   id={`nav-${item.id}`}
@@ -96,7 +130,7 @@ export default function Navbar() {
                       className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-to-r from-primary-400 to-secondary-400"
                     />
                   )}
-                </button>
+                </motion.button>
               ))}
             </div>
 
@@ -105,7 +139,8 @@ export default function Navbar() {
               {/* Theme Toggle */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                transition={{ duration: 0.08 }}
                 onClick={toggleTheme}
                 id="theme-toggle"
                 className={`p-2 rounded-lg transition-colors duration-200 ${
@@ -148,7 +183,8 @@ export default function Navbar() {
               {/* Resume Button */}
               <motion.a
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                transition={{ duration: 0.08 }}
                 href={data.hero?.resumeLink || '/resume.pdf'}
                 download
                 id="download-resume"
@@ -161,7 +197,8 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                transition={{ duration: 0.08 }}
                 onClick={() => setIsOpen(!isOpen)}
                 id="mobile-menu-toggle"
                 className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
@@ -186,7 +223,8 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </motion.nav>
+        </motion.div>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -213,9 +251,9 @@ export default function Navbar() {
                   <span className={`font-bold text-lg ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     Navigation
                   </span>
-                  <button onClick={() => setIsOpen(false)}>
+                  <motion.button onClick={() => setIsOpen(false)} whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }} transition={{ duration: 0.08 }} aria-label="Close menu">
                     <X size={20} className={isDark ? 'text-slate-400' : 'text-slate-600'} />
-                  </button>
+                  </motion.button>
                 </div>
 
                 <nav className="flex-1 overflow-y-auto p-4 space-y-1">
@@ -224,7 +262,8 @@ export default function Navbar() {
                       key={item.id}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05 }}
+                      transition={{ delay: i * 0.05 , duration: 0.08 }}
+                      whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
                       onClick={() => handleNavClick(item.id)}
                       className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
                         activeSection === item.id && isHomePage
@@ -240,19 +279,21 @@ export default function Navbar() {
                 </nav>
 
                 <div className="p-4 border-t border-white/10 space-y-3">
-                  <a
+                  <motion.a
                     href={data.hero?.resumeLink || '/resume.pdf'}
                     download
                     className="btn-primary w-full flex items-center justify-center gap-2 text-sm"
+                    whileTap={{ scale: 0.85, opacity: 0.75, y: 2, filter: 'brightness(0.9)' }}
+                    transition={{ duration: 0.08 }}
                   >
                     <Download size={14} />
                     Download Resume
-                  </a>
+                  </motion.a>
                   <Link to="/admin" onClick={() => setIsOpen(false)}>
-                    <button className="btn-outline w-full flex items-center justify-center gap-2 text-sm">
+                    <motion.button className="btn-outline w-full flex items-center justify-center gap-2 text-sm" whileTap={{  scale:0.97 }} type="button">
                       <Settings size={14} />
                       Admin Panel
-                    </button>
+                    </motion.button>
                   </Link>
                 </div>
               </div>
